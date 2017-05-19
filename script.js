@@ -3,15 +3,17 @@
 
 //sheet must be set as public
 var dataSheet = "https://docs.google.com/spreadsheets/d/1_jwvqIuHLL79VMd7a5qoxinWpJLNsQRzX8PYHjOR_7A/edit#gid=0";
+var query = "select A,B,C WHERE B > 19";
 
 //configure the query - callback is the function to run onSuccess - reset flag runs a new query every time
 sheetrock({
     url: dataSheet,
-    query: "select A,B,C WHERE B > 19",
+    query: query,
     callback: displayResult,
     reset: true
 });
 
+//your callback function must have these 3 parameters
 function displayResult(error, options, response) {
 
     console.log(response);
